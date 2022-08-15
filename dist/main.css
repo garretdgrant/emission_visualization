@@ -1,0 +1,19 @@
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+
+  svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .state {
+    fill: #ccc;
+    stroke: rgb(4, 0, 0);
+  }
+
+  path:hover{
+    fill: aqua;
+    cursor: pointer;
+  }

@@ -1,9 +1,9 @@
 Emission Data Visualization Tool
----------------------------------
+---
 
 Background:
 ---
-----------------------------------
+---
 
 Emission Data Visualization is a tool that will allow users to seamlessly see global emissions. The data will include emissions from countries around the world and will include historical data to see the change in emissions over time. 
 
