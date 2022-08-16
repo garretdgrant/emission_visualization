@@ -30,8 +30,8 @@ addEventListener('DOMContentLoaded',  async (event) => {
     
     
     //Rendering the emission data points
-   await renderEmissions()//.then(res => renderMap());
-   setTimeout(()=>renderMap(), 10000)
+    await renderEmissions()//.then(res => renderMap());
+    // await renderMap();
     // renderMap();
     //rendering the map border
    

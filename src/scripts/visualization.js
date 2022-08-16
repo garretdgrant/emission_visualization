@@ -2,22 +2,23 @@ import * as d3 from 'd3';
 import { stateNames } from './Cities';
 // import * as atlas from '../data/'
 
-export const renderMap = ()=>{
+export const renderMap = async ()=>{
     // d3.select('body').append('h2').text('Select a State')
-    // let width = 1000, height = 600
+    let width = 1000, height = 600
       
-    // let svg = d3.select("body").append("svg")
-    //           .attr("width", width)
-    //           .attr("height", height)
-    //     .attr('display', 'flex').attr('class', 'stateName')
+    let svg = d3.select("div.states").append("svg")
+              .attr("width", width)
+              .attr("height", height)
+        
   // Setting up the svg element for D3 to draw in
     // let width = 1000, height = 600
 
     // let svg = d3.select("body").append("svg")
     //     .attr("width", width)
     //     .attr("height", height)
+    // renderEmissions()
 
-        let svg = d3.select('svg')
+        // let svg = d3.select('svg')
 
     // A projection tells D3 how to orient the GeoJSON features
     console.log('I made it here')
@@ -35,7 +36,7 @@ export const renderMap = ()=>{
 
 
     // Request the GeoJSON
-   let borderMap = d3.json(geoJsonUrl).then(geojson => {
+    d3.json(geoJsonUrl).then(geojson => {
         // Tell D3 to render a path for each GeoJSON feature
         // console.log(geojson.features)
     //   geojson.features.forEach(element => {
@@ -64,7 +65,7 @@ export const renderMap = ()=>{
         })//add stateNames to paths
         .attr('class', 'state')
     })
-
+    
 
 }
 
@@ -80,14 +81,15 @@ export const stateObjects = ()=>{
 }
 
 export const renderEmissions = async ()=>{
+  // console.log("taylor swift")
     // Setting up the svg element for D3 to draw in
       let width = 1000, height = 600
   
-      let svg = d3.select("body").append("svg")
+      let svg = d3.select(".emissions").append("svg")
           .attr("width", width)
           .attr("height", height)
    
-    console.log('I made it Here')
+    // console.log('I made it Here')
       // A projection tells D3 how to orient the GeoJSON features
       let usaProjection = d3.geoAlbersUsa()
           .scale(screen.width/2)
@@ -133,7 +135,7 @@ export const renderEmissions = async ()=>{
         //   .attr('r', 10)
         //   .attr('stroke', 'white')
          //add stateNames to paths
-      })
+      }).then(()=>renderMap())
   }
 
 //   addEventListener('resize', (event)=>{
