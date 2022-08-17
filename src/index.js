@@ -11,7 +11,7 @@
 
 // import {citiesGet, stateNames} from './scripts/Cities';
 // import * as d3 from 'd3';
-import { renderEmissions, renderMap, stateObjects } from './scripts/visualization';
+import { renderEmissions} from './scripts/visualization';
 
 
 
@@ -28,7 +28,7 @@ addEventListener('DOMContentLoaded',  async (event) => {
     // let emissions = {};
     // data().then(res=> emissions = res);
     
-    
+  
     //Rendering the emission data points
     await renderEmissions()//.then(res => renderMap());
     // await renderMap();

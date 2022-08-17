@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { stateNames } from './Cities';
+import { statesGet} from './Cities';
 // import * as atlas from '../data/'
 
 export const renderMap = async ()=>{
@@ -54,12 +54,17 @@ export const renderMap = async ()=>{
         }) 
         .on('mouseout', function(event){
             let title = d3.select('h2');
-            title.text('Select a State')
+            title.text('Select a State:')
             }) 
+        .on('click', function(event){
+          let chart = d3.select('.stateChart')
+          // chart.text(`${this.dataset.names} says ooooh, you clicked me!`)
+          createStateChart(this.dataset.names);
+        })
         .attr("stroke", "black") // Color of the lines themselves
         .attr('stroke-width', 2)
         .attr('fill-opacity', .1)
-        .attr("fill", "#ffbaba") // Color uses to fill in the lines
+        .attr("fill", "transparent") // Color uses to fill in the lines
         .attr('data-names', (state)=>{
             return state.properties.NAME
         })//add stateNames to paths
@@ -143,3 +148,19 @@ export const renderEmissions = async ()=>{
 //     dotMap.scale(screen.width/2)
 //     borderMap.scale(screen.width/2)
 //   })
+
+
+const createStateChart = async (state)=>{
+  // let imgSrc = 'https://gray-wmtv-prod.cdn.arcpublishing.com/resizer/kJlCZCYHXmbXKgO9MbwwPk7SF8w=/1200x675/smart/filters:quality(85)/cloudfront-us-east-1.images.arcpublishing.com/gray/XX4BGNJ2HRC57AQORB2Q4PRWDQ.png'
+  let chart = document.getElementById('chart')
+  if(!chart){
+    console.log(state)
+    console.log('Sorry no chart')
+  } else {
+    //create a nice chart
+   
+  }
+  
+  
+  // chart.append('canvas')
+}
