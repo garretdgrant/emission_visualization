@@ -43,11 +43,19 @@ export const renderMap = async ()=>{
         }) 
         .on('mouseout', function(event){
             let title = d3.select('h2');
+            
             title.text('Select a State:')
             }) 
         .on('click', function(event){
           let chart = d3.select('.stateChart')
           createStateLineChart(this.dataset.names);
+          d3.select('.stateChart').style('opacity', 1)
+            .style('pointer-events', 'auto')
+            .on('click',function(){
+              d3.select('.stateChart').style('opacity', 0)
+              .style('pointer-events', 'none')
+            })
+  
         })
         .attr("stroke", "black") // Color of the lines themselves
         .attr('stroke-width', 2)
@@ -158,14 +166,22 @@ const createStateLineChart = async (state)=>{
 
   //If no chart exist, we need to create a new canvs
   if(!canvas){
-    d3.select('.stateChart').append('canvas').attr('id', 'chart')
+    d3.select('body')
+      .append('div').attr('class', 'stateChart')
+      d3.select('.stateChart')
+      .append('div').attr('class', 'modalContainer')
+      d3.select('.modalContainer')
+      .append('canvas').attr('id', 'chart')
+    d3.select('modalButtons')
+      .append('button').attr('class','close').text('X')
+    d3.select('.close').on('click', console.log('click'))
     canvas = document.getElementById('chart')
     //If a chart does exist we need to delete the old canvas and create a new one
   } else {
     //create a nice chart
     //need to delete the canvas
     d3.select('canvas').remove();
-    d3.select('.stateChart').append('canvas').attr('id', 'chart')
+    d3.select('.modalContainer').append('canvas').attr('id', 'chart')
     canvas = document.getElementById('chart')
   }
   
@@ -174,7 +190,7 @@ const createStateLineChart = async (state)=>{
   const data = {
     labels: Object.keys(yearlies),
     datasets: [{
-      label: 'My First Dataset',
+      label: `${state} CO2 Emissions`,
       data: Object.values(yearlies),
       fill: false,
       borderColor: 'rgb(75, 192, 192)',

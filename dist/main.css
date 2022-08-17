@@ -35,3 +35,43 @@ h1, h2, h3 {
   display: flex;
   justify-content: center;
 }
+
+.stateChart {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  /* animation-fill-mode: backwards; */
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.modalContainer {
+  background-color: white;
+  width: 50rem;
+  padding: 1.5rem;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 0px;
+}
+
+button {
+  font-family: inherit;
+  padding: 0.4rem, 0.8rem;
+  outline: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.states path:hover {
+  cursor: pointer;
+}
