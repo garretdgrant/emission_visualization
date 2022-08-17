@@ -136,7 +136,7 @@ export const renderEmissions = async ()=>{
         //   .attr('r', 10)
         //   .attr('stroke', 'white')
          //add stateNames to paths
-      }).then(()=>renderMap())
+      })//.then(()=>renderMap())
   }
 
 //   addEventListener('resize', (event)=>{
@@ -185,42 +185,100 @@ const createStateLineChart = async (state)=>{
     canvas = document.getElementById('chart')
   }
   
+  
  
   let ctx = canvas.getContext('2d')
   const data = {
     labels: Object.keys(yearlies),
     datasets: [{
-      label: `${state} CO2 Emissions`,
       data: Object.values(yearlies),
       fill: true,
-      borderColor: 'rgb(75, 192, 192)',
-      tension: 0.1,
       xAxisId: 'year', 
       yAxisId: 'CO2'
     }]
   };
+
+  
+    const elements =  {
+     
+      point: {
+        pointStyle: 'circle',
+        radius: 4,
+        hoverRadius: 15,
+        borderColor: '#2e424d',
+        backgroundColor: '#5B8291'
+      },
+      line: {
+        borderColor: '#2e424d',
+        tension: 0.1
+      }
+    };
+
+    const font = {
+      size: 18,
+      weight: 'bold',
+      family: "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"
+      };
+
+    const titleFont = {
+      size: 24,
+      weight: 'bolder',
+      family: "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"
+    };
+
+    const ticks = {
+      color: '#5B8291',
+      font: {size: 14, weight: 'bold'}
+    }
+
+    const scales = {
+      yAxis: {
+        ticks: ticks,
+        grid:{
+          color: '#5B8291'
+        },
+        title: {
+          text: 'CO2 Emissions (million metric tons)',
+          display: true,
+          color: '#5B8291',
+          font: font,
+          // padding: 10
+        }
+      },
+      xAxis: {
+        ticks: ticks,
+        grid:{
+          color: '#5B8291'
+        },
+        title: {
+          text: 'Year',
+          display: true,
+          color: '#5B8291',
+          font: font,
+          // padding: 10
+      } 
+    }
+  };
+  
+  const plugins = {
+    legend: {
+      display: false
+    },
+    title: {
+      display: true,
+      text: `${state}'s Historical CO2 Emissions`,
+      color: '#5B8291',
+      font: titleFont
+    }
+  };
+
    const myChart = new Chart(ctx, {
       type: 'line',
       data: data,
       options: {
-        legend: {
-          display: false
-        },
-
-        scales: {
-          xAxis: {
-            title: {
-              text: 'YEAR',
-              display: true
-            }
-          }
-        },
-        layout: {
-          padding: {
-            bottom: 20,
-            left: 20
-          }
-        }
+        elements: elements,
+        scales: scales,
+        plugins: plugins
       }
    })
   

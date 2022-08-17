@@ -11,7 +11,7 @@
 
 // import {citiesGet, stateNames} from './scripts/Cities';
 // import * as d3 from 'd3';
-import { renderEmissions} from './scripts/visualization';
+import { renderEmissions, renderMap} from './scripts/visualization';
 
 
 
@@ -31,6 +31,7 @@ addEventListener('DOMContentLoaded',  async (event) => {
   
     //Rendering the emission data points
     await renderEmissions()//.then(res => renderMap());
+    renderMap();
     // await renderMap();
     // renderMap();
     //rendering the map border

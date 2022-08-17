@@ -55,9 +55,10 @@ h1, h2, h3{
 }
 
 .modalContainer{
-    background-color: white;
+    background-color: #EAEBED;
     width: 50rem;
     padding: 1.5rem;
+    border-radius: 5rem;
 }
 
 .modalButtons{
@@ -77,4 +78,41 @@ button {
 
 .states path:hover{
     cursor: pointer;
+    // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.legend{
+    display: flex;
+    width: 10rem;
+    height: .5rem;
+    align-self: center;
+}
+
+.legend div{
+    width: 20%;
+    border: solid 0.5px black;
+}
+
+#leg1{
+    background-color: #ffbaba;
+}
+
+#leg2{
+    background-color: #ff7b7b;
+
+}
+
+#leg3{
+    background-color: #ff5252;
+
+}
+
+#leg4{
+    background-color: #702963;
+
+}
+
+#leg5{
+    background-color: #301934;
+
 }
