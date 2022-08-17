@@ -11,16 +11,7 @@ export const renderMap = async ()=>{
     let svg = d3.select("div.states").append("svg")
               .attr("width", width)
               .attr("height", height)
-        
-  // Setting up the svg element for D3 to draw in
-    // let width = 1000, height = 600
-
-    // let svg = d3.select("body").append("svg")
-    //     .attr("width", width)
-    //     .attr("height", height)
-    // renderEmissions()
-
-        // let svg = d3.select('svg')
+    
 
     // A projection tells D3 how to orient the GeoJSON features
     console.log('I made it here')
@@ -39,11 +30,7 @@ export const renderMap = async ()=>{
 
     // Request the GeoJSON
     d3.json(geoJsonUrl).then(geojson => {
-        // Tell D3 to render a path for each GeoJSON feature
-        // console.log(geojson.features)
-    //   geojson.features.forEach(element => {
-    //     console.log(element)
-    //   });
+
     
     svg.selectAll("path")
         .data(geojson.features)
@@ -60,8 +47,7 @@ export const renderMap = async ()=>{
             }) 
         .on('click', function(event){
           let chart = d3.select('.stateChart')
-          // chart.text(`${this.dataset.names} says ooooh, you clicked me!`)
-          createStateChart(this.dataset.names);
+          createStateLineChart(this.dataset.names);
         })
         .attr("stroke", "black") // Color of the lines themselves
         .attr('stroke-width', 2)
@@ -152,7 +138,7 @@ export const renderEmissions = async ()=>{
 //   })
 
 
-const createStateChart = async (state)=>{
+const createStateLineChart = async (state)=>{
   let states = statesGet();
   let stateObject;
   let yearlies = {};
@@ -169,11 +155,21 @@ const createStateChart = async (state)=>{
     
   }
   let canvas = document.getElementById('chart')
-  if(!chart){
-    // console.log(state)
-    console.log('Sorry no chart')
+
+  //If no chart exist, we need to create a new canvs
+  if(!canvas){
+    d3.select('.stateChart').append('canvas').attr('id', 'chart')
+    canvas = document.getElementById('chart')
+    //If a chart does exist we need to delete the old canvas and create a new one
   } else {
     //create a nice chart
+    //need to delete the canvas
+    d3.select('canvas').remove();
+    d3.select('.stateChart').append('canvas').attr('id', 'chart')
+    canvas = document.getElementById('chart')
+  }
+  
+ 
   let ctx = canvas.getContext('2d')
   const data = {
     labels: Object.keys(yearlies),
@@ -189,9 +185,5 @@ const createStateChart = async (state)=>{
       type: 'line',
       data: data
    })
-  }
   
-
-  
-  // chart.append('canvas')
 }
