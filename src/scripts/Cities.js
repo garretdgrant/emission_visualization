@@ -2965,15 +2965,6 @@ const states = [
   }
 ]
 
-export const stateNames = ()=>{
-  let states = [];
-  for(let i = 0; i < cities.length; i++){
-      states.push(cities[i]['State'].split(',')[0])
-  }
-  return states;
-}
-
-
 export const statesGet = () =>{
   return states;
 }

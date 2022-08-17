@@ -151,10 +151,24 @@ export const renderEmissions = async ()=>{
 
 
 const createStateChart = async (state)=>{
-  // let imgSrc = 'https://gray-wmtv-prod.cdn.arcpublishing.com/resizer/kJlCZCYHXmbXKgO9MbwwPk7SF8w=/1200x675/smart/filters:quality(85)/cloudfront-us-east-1.images.arcpublishing.com/gray/XX4BGNJ2HRC57AQORB2Q4PRWDQ.png'
+  let states = statesGet();
+  let stateObject;
+  let yearlies = [];
+  for (let i = 0; i < states.length; i++){
+    if (states[i]['State'] === state){
+      stateObject = states[i];
+      let delta = stateObject.Percent
+      for (let j = 1970; j <= 2019; j++){
+        yearlies.push(stateObject[`${j}`])
+      }
+      console.log(delta, yearlies)
+      break;
+    } 
+    
+  }
   let chart = document.getElementById('chart')
   if(!chart){
-    console.log(state)
+    // console.log(state)
     console.log('Sorry no chart')
   } else {
     //create a nice chart
