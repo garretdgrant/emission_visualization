@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import { statesGet} from './Cities';
 import Chart from 'chart.js/auto'
-import { utcMillisecond } from 'd3';
+import { forceCenter, utcMillisecond } from 'd3';
 // import * as atlas from '../data/'
 
 export const renderMap = async ()=>{
@@ -192,14 +192,36 @@ const createStateLineChart = async (state)=>{
     datasets: [{
       label: `${state} CO2 Emissions`,
       data: Object.values(yearlies),
-      fill: false,
+      fill: true,
       borderColor: 'rgb(75, 192, 192)',
-      tension: 0.1
+      tension: 0.1,
+      xAxisId: 'year', 
+      yAxisId: 'CO2'
     }]
   };
    const myChart = new Chart(ctx, {
       type: 'line',
-      data: data
+      data: data,
+      options: {
+        legend: {
+          display: false
+        },
+
+        scales: {
+          xAxis: {
+            title: {
+              text: 'YEAR',
+              display: true
+            }
+          }
+        },
+        layout: {
+          padding: {
+            bottom: 20,
+            left: 20
+          }
+        }
+      }
    })
   
 }
