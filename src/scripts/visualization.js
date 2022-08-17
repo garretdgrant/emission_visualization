@@ -1,5 +1,7 @@
 import * as d3 from 'd3';
 import { statesGet} from './Cities';
+import Chart from 'chart.js/auto'
+import { utcMillisecond } from 'd3';
 // import * as atlas from '../data/'
 
 export const renderMap = async ()=>{
@@ -153,28 +155,43 @@ export const renderEmissions = async ()=>{
 const createStateChart = async (state)=>{
   let states = statesGet();
   let stateObject;
-  let yearlies = [];
+  let yearlies = {};
   for (let i = 0; i < states.length; i++){
     if (states[i]['State'] === state){
       stateObject = states[i];
       let delta = stateObject.Percent
       for (let j = 1970; j <= 2019; j++){
-        yearlies.push(stateObject[`${j}`])
+        yearlies[j] = stateObject[`${j}`]
       }
       console.log(delta, yearlies)
       break;
     } 
     
   }
-  let chart = document.getElementById('chart')
+  let canvas = document.getElementById('chart')
   if(!chart){
     // console.log(state)
     console.log('Sorry no chart')
   } else {
     //create a nice chart
-   
+  let ctx = canvas.getContext('2d')
+  const data = {
+    labels: Object.keys(yearlies),
+    datasets: [{
+      label: 'My First Dataset',
+      data: Object.values(yearlies),
+      fill: false,
+      borderColor: 'rgb(75, 192, 192)',
+      tension: 0.1
+    }]
+  };
+   const myChart = new Chart(ctx, {
+      type: 'line',
+      data: data
+   })
   }
   
+
   
   // chart.append('canvas')
 }
