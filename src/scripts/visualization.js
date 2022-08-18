@@ -119,10 +119,12 @@ export const renderEmissions = async ()=>{
             let value = object.properties.value;
           //max = 0.491, min =.0139
            let dScale = (max-min)/5;
-            if (value < (min + dScale)) {return '#ffbaba'}else if(value < min + 2* dScale){return '#ff7b7b'}
-            else if(value < min + 3 * dScale) {return '#ff5252'} else if(value< min + 3.5 * dScale){return '#702963'};
-            return '#301934';
-      
+            // if (value < (min + dScale)) {return '#ffbaba'}else if(value < min + 2* dScale){return '#ff7b7b'}
+            // else if(value < min + 3 * dScale) {return '#ff5252'} else if(value< min + 3.5 * dScale){return '#702963'};
+            // return '#301934';
+            if (value < (min + dScale)) {return '#2cba00'}else if(value < min + 2* dScale){return '#a3ff00'}
+            else if(value < min + 3 * dScale) {return '#fff400'} else if(value< min + 3.5 * dScale){return '#ffa700'};
+            return '#ff0000';
           } ) 
       })
   }
