@@ -37,7 +37,7 @@ nav div.title {
 }
 
 nav {
-  width: 100rem;
+  width: 100vw;
   height: 3rem;
   background-color: #244d61;
   display: flex;
