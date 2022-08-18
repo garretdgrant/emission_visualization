@@ -67,7 +67,7 @@ export const renderMap = async ()=>{
         .attr('class', 'state')
     })
     
-
+    
 }
 
 export const stateObjects = ()=>{
@@ -282,4 +282,13 @@ const createStateLineChart = async (state)=>{
       }
    })
   
+ 
 }
+
+export const closeInstructions = ()=>{
+  d3.select('#instruction_modal')
+    .on('click', function(){
+      d3.select('#instruction_modal').attr('opacity', 0)
+      .attr('pointer-events', 'none')
+    })
+ }

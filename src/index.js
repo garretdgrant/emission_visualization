@@ -32,6 +32,11 @@ addEventListener('DOMContentLoaded',  async (event) => {
     //Rendering the emission data points
     await renderEmissions()//.then(res => renderMap());
     renderMap();
+    let instructions = document.getElementById('instruction_modal')
+    instructions.addEventListener('click', event =>{
+        instructions.style.opacity = '0';
+        instructions.style.pointerEvents = 'none';
+    })
     // await renderMap();
     // renderMap();
     //rendering the map border
