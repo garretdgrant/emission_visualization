@@ -14,6 +14,7 @@ body {
   display: flex;
   align-items: center;
   z-index: 1;
+  cursor: pointer;
   transition: 800ms;
 }
 
@@ -80,6 +81,7 @@ nav div.title {
   align-self: center;
   justify-content: center;
   position: absolute;
+  pointer-events: none;
 }
 
 nav {
@@ -147,6 +149,7 @@ h1, h2, h3 {
   align-items: center;
   pointer-events: none;
   opacity: 0;
+  cursor: pointer;
   transition: 600ms;
 }
 
