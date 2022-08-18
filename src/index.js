@@ -37,9 +37,7 @@ addEventListener('DOMContentLoaded',  async (event) => {
         instructions.style.opacity = '0';
         instructions.style.pointerEvents = 'none';
     })
-    // await renderMap();
-    // renderMap();
-    //rendering the map border
+   
    
 
 });

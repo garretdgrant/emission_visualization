@@ -15,6 +15,7 @@ body {
   align-items: center;
   z-index: 1;
   margin-top: -35rem;
+  transition: 800ms;
 }
 
 .maps {
@@ -37,7 +38,7 @@ body {
 }
 
 .instructions div {
-  scale: 1.2;
+  scale: 1.5;
   color: #244d61;
   background-color: #EAEBED;
   font-weight: bold;
