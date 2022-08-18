@@ -7,7 +7,35 @@ body {
 }
 
 .maps {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
   margin-top: 4%;
+}
+
+.instructions {
+  width: 100vw;
+  margin-top: 2rem;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+.instructions p {
+  margin: 1rem;
+}
+
+.instructions div {
+  scale: 1.2;
+  color: #244d61;
+  background-color: #EAEBED;
+  font-weight: bold;
+  border: solid #244d61;
+  width: 40vw;
+  border-radius: 1rem;
+  font-size: large;
+  font-family: serif;
+  height: fit-content;
 }
 
 h2 {
@@ -17,6 +45,7 @@ h2 {
   font-size: xx-large;
   font-family: serif;
   font-weight: bold;
+  color: #244d61;
 }
 
 nav div.links {
@@ -62,14 +91,14 @@ sub {
 }
 
 .states {
-  width: 100vw;
+  width: 60vw;
   position: absolute;
   display: flex;
   justify-content: center;
 }
 
 .emissions {
-  width: 100vw;
+  width: 60vw;
   display: flex;
   justify-content: center;
 }
