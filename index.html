@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js"></script>
     <title>Emission Visualization</title>
 </head>
 <nav>
-
-
+    <div>
+        <a href="https://www.linkedin.com/in/garret-d-grant/"><i class="fab fa-linkedin"></i></a>
+        <a href=""><i class="fab fa-github"></i></a>
+    </div>
 </nav>
 <body>
-    <h1 class="title">Emission Visualization</h1>
+    <h1 class="title">United States CO and CO2 Data</h1>
     <h2>Select a State: </h2>
     <div class="maps">
         <div class="states">
@@ -30,15 +39,19 @@
 
         </div> -->
     <!-- </div> -->
-    <p>Current CO Satellite Readings</p>
-    <div class="legend">
-        <p>0</p>
-        <div id="leg1"></div>
-        <div id="leg2"></div>
-        <div id="leg3"></div>
-        <div id="leg4"></div>
-        <div id="leg5"></div>
-        <p>5</p>
+    <div id="flexer">
+        <p id="legTitle">Current CO Satellite Readings(mmol/m^2)</p>
+     
+
+        <div class="legend">
+            <p>14</p>
+            <div id="leg1"></div>
+            <div id="leg2"></div>
+            <div id="leg3"></div>
+            <div id="leg4"></div>
+            <div id="leg5"></div>
+            <p>49</p>
+        </div>
     </div>
 </body>
 </html>

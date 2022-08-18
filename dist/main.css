@@ -3,10 +3,27 @@
   \*************************************************************************************************************************************/
 body {
   position: relative;
+  background-color: #EAEBED;
 }
 
-.maps {
-  margin-top: -9%;
+nav div {
+  width: 20rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav {
+  width: 100rem;
+  height: 3rem;
+  background-color: #244d61;
+  display: flex;
+  justify-content: center;
+}
+
+i {
+  font-size: 40px;
+  font-weight: bold;
+  color: #EAEBED;
 }
 
 .states {
@@ -79,14 +96,29 @@ button {
 
 .legend {
   display: flex;
-  width: 10rem;
-  height: 0.5rem;
+  width: 20rem;
+  height: 1rem;
   align-self: center;
+  justify-content: center;
 }
 
 .legend div {
   width: 20%;
   border: solid 0.5px black;
+}
+
+#flexer {
+  display: flex;
+  width: 100rem;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: bold;
+  margin-top: -5%;
+  margin-left: -1%;
+}
+
+#legTitle {
+  align-self: center;
 }
 
 #leg1 {
