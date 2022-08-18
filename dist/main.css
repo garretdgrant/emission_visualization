@@ -1,3 +1,227 @@
-body{position:relative;background-color:#eaebed}#instruction_modal{height:100rem;width:100vw;background-color:rgba(0,0,1,.5);position:absolute;display:flex;align-items:center;z-index:1;margin-top:-35rem;transition:800ms}.maps{width:100vw;display:flex;justify-content:center;margin-top:4%}.instructions{width:100vw;margin-top:2rem;height:10vh;display:flex;justify-content:center}.instructions p{margin:1rem}.instructions div{scale:1.5;color:#244d61;background-color:#eaebed;font-weight:bold;border:solid #244d61;width:40vw;border-radius:1rem;font-size:large;font-family:serif;height:fit-content}h2{display:flex;margin-bottom:-7rem;margin-top:3rem;font-size:xx-large;font-family:serif;font-weight:bold;color:#244d61}nav div.links{width:11rem;display:flex;justify-content:space-evenly;align-items:center}nav div.title{font-size:xx-large;font-weight:bold;color:#eaebed;width:77vw;display:flex;align-self:center;justify-content:center}nav{width:100vw;height:3rem;background-color:#244d61;display:flex;justify-content:flex-start}i{font-size:35px;font-weight:bold;color:#eaebed;transition:500ms}nav i:hover{scale:1.25;color:#98dad9}sub{font-size:medium}.states{width:60vw;position:absolute;display:flex;justify-content:center}.emissions{width:60vw;display:flex;justify-content:center}.states path:hover{fill:#fff}svg{display:flex;justify-content:center}h1,h2,h3{display:flex;justify-content:center}.stateChart{width:100vw;height:100vh;background-color:rgba(0,0,0,.5);position:absolute;top:0;left:0;display:flex;justify-content:center;align-items:center;pointer-events:none;opacity:0}.modalContainer{background-color:#eaebed;width:50rem;padding:1.5rem;border-radius:5rem}.modalButtons{display:flex;gap:.5rem;justify-content:flex-end;margin-top:0px}button{font-family:inherit;padding:.4rem,.8rem;outline:none;font-size:1rem;cursor:pointer}.states path:hover{cursor:pointer}.legend{display:flex;width:20rem;height:1rem;align-self:center;justify-content:center}.legend div{width:20%;border:solid .5px #000}#flexer{display:flex;width:100rem;justify-content:center;flex-direction:column;font-weight:bold}#legTitle{align-self:center}#leg1{background-color:#ffbaba}#leg2{background-color:#ff7b7b}#leg3{background-color:#ff5252}#leg4{background-color:#702963}#leg5{background-color:#301934}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+body {
+  position: relative;
+  background-color: #EAEBED;
+}
 
-/*# sourceMappingURL=main.css.map*/
+#instruction_modal {
+  height: 100rem;
+  width: 100vw;
+  background-color: rgba(0, 0, 1, 0.5);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  margin-top: -35rem;
+  transition: 800ms;
+}
+
+.maps {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 4%;
+}
+
+.instructions {
+  width: 100vw;
+  margin-top: 2rem;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+.instructions p {
+  margin: 1rem;
+  color: #1a1a1a;
+  line-height: 1.5rem;
+  font-family: arial;
+  font-weight: 100%;
+}
+
+.instructions div {
+  padding: 0.25rem;
+  scale: 1.5;
+  color: #244d61;
+  background-color: white;
+  font-weight: bold;
+  width: 28vw;
+  border-radius: 1rem;
+  font-size: large;
+  font-family: serif;
+  height: fit-content;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  display: flex;
+  margin-bottom: -7rem;
+  margin-top: 3rem;
+  font-size: xx-large;
+  font-family: serif;
+  font-weight: bold;
+  color: #244d61;
+}
+
+nav div.links {
+  width: 11rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+nav div.title {
+  font-size: xx-large;
+  font-weight: bold;
+  color: #EAEBED;
+  width: 77vw;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+nav {
+  width: 100vw;
+  height: 3rem;
+  background-color: #244d61;
+  display: flex;
+  justify-content: flex-start;
+}
+
+i {
+  font-size: 35px;
+  font-weight: bold;
+  color: #EAEBED;
+  transition: 300ms;
+}
+
+nav i:hover {
+  scale: 1.25;
+  color: #98dad9;
+}
+
+sub {
+  /* Move the subscripted text down, but only half as far down as the superscript moved up */
+  font-size: medium;
+}
+
+.states {
+  width: 60vw;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.emissions {
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+}
+
+.states path:hover {
+  fill: white;
+}
+
+svg {
+  display: flex;
+  justify-content: center;
+}
+
+h1, h2, h3 {
+  display: flex;
+  justify-content: center;
+}
+
+.stateChart {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  /* animation-fill-mode: backwards; */
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: 600ms;
+}
+
+.modalContainer {
+  background-color: #EAEBED;
+  width: 50rem;
+  padding: 1.5rem;
+  border-radius: 5rem;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 0px;
+}
+
+button {
+  font-family: inherit;
+  padding: 0.4rem, 0.8rem;
+  outline: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.states path:hover {
+  cursor: pointer;
+}
+
+.legend {
+  display: flex;
+  width: 24rem;
+  height: 1rem;
+  align-self: center;
+  justify-content: center;
+}
+
+.legend div {
+  width: 20%;
+  border: solid 0.5px black;
+}
+
+.legend p {
+  padding: 1rem;
+}
+
+#flexer {
+  display: flex;
+  width: 100rem;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+#legTitle {
+  align-self: center;
+  padding-bottom: 0.5rem;
+}
+
+#leg1 {
+  background-color: #ffbaba;
+}
+
+#leg2 {
+  background-color: #ff7b7b;
+}
+
+#leg3 {
+  background-color: #ff5252;
+}
+
+#leg4 {
+  background-color: #702963;
+}
+
+#leg5 {
+  background-color: #301934;
+}

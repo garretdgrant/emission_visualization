@@ -34,19 +34,24 @@ justify-content: center;
 
 .instructions p{
     margin: 1rem;
+    color: #1a1a1a;
+    line-height: 1.5rem;
+    font-family: arial;
+    font-weight: 100%;
 }
 
 .instructions div{
+    padding: 0.25rem;
     scale: 1.5;
     color: #244d61;
-    background-color: #EAEBED;
+    background-color: white;
     font-weight: bold;
-    border: solid #244d61;
-    width: 40vw;
+    width: 28vw;
     border-radius: 1rem;
     font-size: large;
     font-family: serif;
     height: fit-content;
+    box-shadow: 2px 2px 6px rgb(0 0 0 / 20%);
 }
 
 h2{
@@ -91,7 +96,7 @@ i{
     font-size: 35px;
     font-weight: bold;
     color: #EAEBED;
-    transition: 500ms;
+    transition: 300ms;
 }
 
 nav i:hover{
@@ -149,6 +154,7 @@ h1, h2, h3{
     align-items: center;
     pointer-events: none;
     opacity: 0;
+    transition: 600ms;
 
 }
 
@@ -181,7 +187,7 @@ button {
 
 .legend{
     display: flex;
-    width: 20rem;
+    width: 24rem;
     height: 1rem;
     align-self: center;
     justify-content: center;
@@ -190,6 +196,10 @@ button {
 .legend div{
     width: 20%;
     border: solid 0.5px black;
+}
+
+.legend p{
+    padding: 1rem;
 }
 
 #flexer{
@@ -204,6 +214,7 @@ button {
 
 #legTitle{
     align-self: center;
+    padding-bottom: 0.5rem;
 }
 #leg1{
     background-color: #ffbaba;

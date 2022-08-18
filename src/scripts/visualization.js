@@ -2,10 +2,10 @@ import * as d3 from 'd3';
 import { statesGet} from './Cities';
 import Chart from 'chart.js/auto'
 import { forceCenter, utcMillisecond } from 'd3';
-// import * as atlas from '../data/'
+
 
 export const renderMap = async ()=>{
-    // d3.select('body').append('h2').text('Select a State')
+    
     let width = 1000, height = 600
       
     let svg = d3.select("div.states").append("svg")
@@ -14,7 +14,6 @@ export const renderMap = async ()=>{
     
 
     // A projection tells D3 how to orient the GeoJSON features
-    console.log('I made it here')
     let usaProjection = d3.geoAlbersUsa()
         .scale(screen.width/2)
         .translate([500, 300])
@@ -75,14 +74,12 @@ export const stateObjects = ()=>{
 
     let stateObjects;
     d3.json(geoJsonUrl).then(data=>{
-        console.log(data.features)
         stateObjects = data.features;
     })
     return stateObjects;
 }
 
 export const renderEmissions = async ()=>{
-  // console.log("taylor swift")
     // Setting up the svg element for D3 to draw in
       let width = 1000, height = 600
   
@@ -90,7 +87,6 @@ export const renderEmissions = async ()=>{
           .attr("width", width)
           .attr("height", height)
    
-    // console.log('I made it Here')
       // A projection tells D3 how to orient the GeoJSON features
       let usaProjection = d3.geoAlbersUsa()
           .scale(screen.width/2)
@@ -109,7 +105,6 @@ export const renderEmissions = async ()=>{
       let dotMap;
        d3.json(geoJsonUrl).then(geojson => {
           // Tell D3 to render a path for each GeoJSON feature
-        //  console.log(geojson, geojson.features)
         
         let max = .049;
         let min = .0139;
@@ -119,31 +114,18 @@ export const renderEmissions = async ()=>{
           .enter()
           .append("path")
           .attr("d", pathGenerator) // This is where the magic happens
-        //   .attr("stroke", "white") // Color of the lines themselves
           .attr("fill", object=>{
             counter +=1;
             let value = object.properties.value;
           //max = 0.491, min =.0139
            let dScale = (max-min)/5;
-     
-            if (value > min + 3 * dScale){console.log('counter')}
-          
             if (value < (min + dScale)) {return '#ffbaba'}else if(value < min + 2* dScale){return '#ff7b7b'}
             else if(value < min + 3 * dScale) {return '#ff5252'} else if(value< min + 3.5 * dScale){return '#702963'};
             return '#301934';
-       
-          } ) // Color uses to fill in the lines
-        //   .attr('r', 10)
-        //   .attr('stroke', 'white')
-         //add stateNames to paths
-      })//.then(()=>renderMap())
+      
+          } ) 
+      })
   }
-
-//   addEventListener('resize', (event)=>{
-//     console.log('I made it in here')
-//     dotMap.scale(screen.width/2)
-//     borderMap.scale(screen.width/2)
-//   })
 
 
 const createStateLineChart = async (state)=>{
@@ -157,7 +139,6 @@ const createStateLineChart = async (state)=>{
       for (let j = 1970; j <= 2019; j++){
         yearlies[j] = stateObject[`${j}`]
       }
-      console.log(delta, yearlies)
       break;
     } 
     
@@ -174,7 +155,6 @@ const createStateLineChart = async (state)=>{
       .append('canvas').attr('id', 'chart')
     d3.select('modalButtons')
       .append('button').attr('class','close').text('X')
-    d3.select('.close').on('click', console.log('click'))
     canvas = document.getElementById('chart')
     //If a chart does exist we need to delete the old canvas and create a new one
   } else {
