@@ -15,7 +15,7 @@ body {
   align-items: center;
   z-index: 1;
   cursor: pointer;
-  transition: 800ms;
+  transition: 600ms;
 }
 
 .maps {
@@ -150,7 +150,7 @@ h1, h2, h3 {
   pointer-events: none;
   opacity: 0;
   cursor: pointer;
-  transition: 900ms ease-in-out;
+  transition: 600ms ease-in-out;
 }
 
 .modalContainer {

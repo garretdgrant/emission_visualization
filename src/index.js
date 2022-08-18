@@ -1,6 +1,4 @@
-
 import { renderEmissions, renderMap} from './scripts/visualization';
-
 
 addEventListener('DOMContentLoaded',  async (event) => {
     await renderEmissions() // renders the colored map
