@@ -7,9 +7,10 @@ body {
 }
 
 nav div {
-  width: 20rem;
+  width: 11rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 nav {
@@ -17,13 +18,17 @@ nav {
   height: 3rem;
   background-color: #244d61;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 i {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bold;
   color: #EAEBED;
+}
+
+i:hover {
+  scale: 1.1;
 }
 
 .states {
