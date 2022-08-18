@@ -6,6 +6,19 @@ body {
   background-color: #EAEBED;
 }
 
+.maps {
+  margin-top: 4%;
+}
+
+h2 {
+  display: flex;
+  margin-bottom: -7rem;
+  margin-top: 3rem;
+  font-size: xx-large;
+  font-family: serif;
+  font-weight: bold;
+}
+
 nav div.links {
   width: 11rem;
   display: flex;
@@ -38,7 +51,7 @@ i {
   transition: 500ms;
 }
 
-i:hover {
+nav i:hover {
   scale: 1.25;
   color: #98dad9;
 }
@@ -135,8 +148,6 @@ button {
   justify-content: center;
   flex-direction: column;
   font-weight: bold;
-  margin-top: -5%;
-  margin-left: -1%;
 }
 
 #legTitle {

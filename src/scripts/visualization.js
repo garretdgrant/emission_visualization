@@ -44,7 +44,7 @@ export const renderMap = async ()=>{
         .on('mouseout', function(event){
             let title = d3.select('h2');
             
-            title.text('Select a State:')
+            title.text('Click a State:')
             }) 
         .on('click', function(event){
           let chart = d3.select('.stateChart')
@@ -185,7 +185,7 @@ const createStateLineChart = async (state)=>{
     canvas = document.getElementById('chart')
   }
   
-  
+
  
   let ctx = canvas.getContext('2d')
   const data = {
