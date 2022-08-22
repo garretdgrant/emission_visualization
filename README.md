@@ -1,38 +1,40 @@
-Emission Data Visualization Tool
+United States Emission Data Visualization Tool
 ---
 
 Background:
 ---
 ---
 
-Emission Data Visualization is a tool that will allow users to seamlessly see global emissions. The data will include emissions from countries around the world and will include historical data to see the change in emissions over time. 
+This application displays Carbon Monoxide (CO) and Carbon Dioxide (CO2) emissions data across the United States. 
+On launch the application loads twenty thousand CO data points from the emissions api. The map is filled
+in with these data points, allowing a seamless view of CO across the country. Individual states on the map
+can be clicked to display the historical CO2 data over the last 20 years for that state. 
+
 
 Functionality & MVPs:
 ---
--------------
+---
 
-With this data visualization tool, users will be able to:
-* Visually compare emissions data on a global map which will be color coated by amount of emissions released 
-* Select individual years to render the emission data on the map for a specific year
-* Hit a play button to transition through the possible years and see the map change in color as the emissions change by year
+With this data visualization tool, users are able to:
+* Visually compare emissions data on a US map which is color coated by amount of emissions released 
+* Select individual states to render a chart depicting historical emission data for that specific state. 
 
-In addition, this project will include:
 
-* Data being fetched from multiple API’s
-* A production README
-* Wireframe
+In addition, this project includes:
 
-Wireframe:
+* Data being fetched from the emissions API
+
+<!-- Wireframe:
 ---
 ---
-![Alt text](./JS_Project_Wireframe.jpg?raw=true "Wireframe")
+![Alt text](./JS_Project_Wireframe.jpg?raw=true "Wireframe") -->
 
 Libraries and API's:
 ---
 ---
 * D3.js
 * chart.js
-* some api
+* https://emissions-api.org/
 
 Implementation Timeline:
 ---
