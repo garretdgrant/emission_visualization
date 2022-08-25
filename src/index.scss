@@ -244,12 +244,12 @@ button {
 .loading{
     display: flex;
     position: absolute;
-    scale: 0.25;
+    align-items: flex-start;
     justify-content: center;
     width: 100vw;
-    height: 80vh;
-    margin-top: 2rem;
-    font-size: large;
-    font-weight: bolder;
-    color: red;
+    height: 100vh;
+}
+
+.stateShow {
+    opacity: 0;
 }

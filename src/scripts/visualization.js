@@ -22,7 +22,6 @@ export const renderMap = async ()=>{
     // The path generator uses the projection to convert the GeoJSON
     // geometry to a set of coordinates that D3 can understand
 
-
     let pathGenerator = d3.geoPath().projection(usaProjection)
     let geoJsonUrl = "https://raw.githubusercontent.com/loganpowell/census-geojson/master/GeoJSON/20m/2021/state.json"
 
@@ -127,7 +126,8 @@ export const renderEmissions = async ()=>{
             return '#ff0000';
           } ) 
         }).then(data=> {
-          d3.select('.loading').style('opacity', 0)
+          d3.select('.loading').style('opacity', 0);
+          d3.select('.stateShow').style('opacity', 1);
         })
 
       }
