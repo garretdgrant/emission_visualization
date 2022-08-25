@@ -110,14 +110,12 @@ sub {
 }
 
 .states {
-  width: 60vw;
   position: absolute;
   display: flex;
   justify-content: center;
 }
 
 .emissions {
-  width: 60vw;
   display: flex;
   justify-content: center;
 }
@@ -227,4 +225,17 @@ button {
 
 #leg5 {
   background-color: #ff0000;
+}
+
+.loading {
+  display: flex;
+  position: absolute;
+  scale: 0.25;
+  justify-content: center;
+  width: 100vw;
+  height: 80vh;
+  margin-top: 2rem;
+  font-size: large;
+  font-weight: bolder;
+  color: red;
 }

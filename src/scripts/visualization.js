@@ -126,8 +126,11 @@ export const renderEmissions = async ()=>{
             else if(value < min + 3 * dScale) {return '#fff400'} else if(value< min + 3.5 * dScale){return '#ffa700'};
             return '#ff0000';
           } ) 
-      })
-  }
+        }).then(data=> {
+          d3.select('.loading').style('opacity', 0)
+        })
+
+      }
 
 
 const createStateLineChart = async (state)=>{
