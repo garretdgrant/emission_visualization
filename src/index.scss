@@ -15,13 +15,7 @@ body{
     transition: 600ms;
 }
 
-.maps{
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    justify-content: center;
-}
+
 
 .instructions{
 width: 100vw;
@@ -90,6 +84,8 @@ nav{
     background-color: #244d61;
     display: flex;
     justify-content: flex-start;
+    z-index: 10;
+    position: relative;
 }
 
 i{
@@ -243,8 +239,12 @@ button {
     align-items: flex-start;
     justify-content: center;
     width: 100vw;
+    pointer-events: none;
 }
 
 .stateShow {
     opacity: 0;
+    height: fit-content;
+    width: 100vw;
+    margin-top: 1rem;
 }
