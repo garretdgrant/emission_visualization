@@ -97,7 +97,7 @@ export const renderEmissions = async ()=>{
   
   
       let pathGenerator = d3.geoPath().projection(usaProjection)
-      let geoJsonUrl = "https://api.v2.emissions-api.org/api/v2/carbonmonoxide/geo.json?country=USA&begin=2021-02-01&end=2021-02-11&limit=10000&offset=0"
+      let geoJsonUrl = "https://api.v2.emissions-api.org/api/v2/carbonmonoxide/geo.json?country=USA&begin=2021-02-01&end=2021-02-11&limit=7000&offset=0"
   
   
       // Request the GeoJSON
@@ -116,11 +116,8 @@ export const renderEmissions = async ()=>{
           .attr("fill", object=>{
             counter +=1;
             let value = object.properties.value;
-          //max = 0.491, min =.0139
-           let dScale = (max-min)/5;
-            // if (value < (min + dScale)) {return '#ffbaba'}else if(value < min + 2* dScale){return '#ff7b7b'}
-            // else if(value < min + 3 * dScale) {return '#ff5252'} else if(value< min + 3.5 * dScale){return '#702963'};
-            // return '#301934';
+           //max = 0.491, min =.0139
+            let dScale = (max-min)/5;
             if (value < (min + dScale)) {return '#2cba00'}else if(value < min + 2* dScale){return '#a3ff00'}
             else if(value < min + 3 * dScale) {return '#fff400'} else if(value< min + 3.5 * dScale){return '#ffa700'};
             return '#ff0000';

@@ -1,12 +1,10 @@
 body{
     position: relative;
     background-color: #EAEBED;
-    // display: flex;
-    // justify-content: center;
 }
 
 #instruction_modal{
-    height: 100vh;
+    height: calc(100vh - 3rem);
     width: 100vw;
     background-color: rgba(0,0,0.5,0.5);
     position: absolute;
@@ -20,8 +18,9 @@ body{
 .maps{
     width: 100vw;
     display: flex;
+    flex-direction: column;
+    position: relative;
     justify-content: center;
-    margin-top: 4%;
 }
 
 .instructions{
@@ -114,19 +113,20 @@ sub {
     position: absolute;
     display: flex;
     justify-content: center;
+    width: 100%;
+    height: 100%;
     
 }
 
 .emissions{
-    // width: 60vw;
     display: flex;
     justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .states path:hover{
-    fill: white;
-    
-    
+    fill: black;
 }
 
 svg {
@@ -143,20 +143,18 @@ h1, h2, h3{
 
 .stateChart{
     width: 100vw;
-    height: 106vh;
+    // height: 106vh;
     background-color: rgba(0,0,0,0.5);
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
-    /* animation-fill-mode: backwards; */
     justify-content: center;
     align-items: center;
     pointer-events: none;
     opacity: 0;
     cursor: pointer;
     transition: 600ms ease-in-out;
-
 }
 
 .modalContainer{
@@ -183,7 +181,6 @@ button {
 
 .states path:hover{
     cursor: pointer;
-    // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .legend{
@@ -209,8 +206,7 @@ button {
     justify-content: center;
     flex-direction: column;
     font-weight: bold;
-    // margin-top: -5%;
-    // margin-left: -1%;
+    margin-top: -2rem;
 }
 
 #legTitle{
@@ -247,7 +243,6 @@ button {
     align-items: flex-start;
     justify-content: center;
     width: 100vw;
-    height: 100vh;
 }
 
 .stateShow {
