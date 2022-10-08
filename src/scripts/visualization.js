@@ -52,7 +52,7 @@ export const renderMap = async ()=>{
             .on('click',function(){
               d3.select('.stateChart').style('opacity', 0)
               .style('pointer-events', 'none')
-            })
+          })
   
         })
         .attr("stroke", "black") // Color of the lines themselves
@@ -94,14 +94,9 @@ export const renderEmissions = async ()=>{
   
       // The path generator uses the projection to convert the GeoJSON
       // geometry to a set of coordinates that D3 can understand
-  
-  
       let pathGenerator = d3.geoPath().projection(usaProjection)
       let geoJsonUrl = "https://api.v2.emissions-api.org/api/v2/carbonmonoxide/geo.json?country=USA&begin=2021-02-01&end=2021-02-11&limit=7000&offset=0"
-  
-  
       // Request the GeoJSON
-      let dotMap;
        d3.json(geoJsonUrl).then(geojson => {
           // Tell D3 to render a path for each GeoJSON feature
         
