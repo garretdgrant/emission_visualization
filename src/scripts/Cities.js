@@ -2966,6 +2966,11 @@ const states = [
 ]
 
 export const statesGet = () =>{
-  return states;
+  const stateObj = {}
+  for (let i = 0; i < states.length; i++){
+    const state = states[i];
+    stateObj[state.State] = state;
+  }
+  return stateObj;
 }
 

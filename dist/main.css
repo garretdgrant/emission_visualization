@@ -120,7 +120,7 @@ sub {
 }
 
 .states path:hover {
-  fill: black;
+  fill: rgba(31, 30, 30, 0.1);
 }
 
 svg {
@@ -226,17 +226,7 @@ button {
   background-color: #ff0000;
 }
 
-.loading {
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100vw;
-  pointer-events: none;
-}
-
 .stateShow {
-  opacity: 0;
   height: fit-content;
   width: 100vw;
   margin-top: 1rem;

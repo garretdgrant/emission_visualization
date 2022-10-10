@@ -1,8 +1,27 @@
 import * as d3 from 'd3';
-import { statesGet} from './Cities';
+import { statesGet } from './Cities';
 import Chart from 'chart.js/auto'
 import { forceCenter, utcMillisecond } from 'd3';
 
+
+const maxMinData = () =>{
+  const statesArray = Object.values(statesGet())
+  const maxMin = {
+    max: 0,
+    min: 100
+  };
+  for (let j = 0; j < statesArray.length; j++){
+    const currentMax = maxMin['max'];
+    const currentMin = maxMin['min']
+    const currentLevel = statesArray[j]['2019'];
+    if (currentLevel > currentMax){
+      maxMin['max'] = currentLevel;
+    } else if (currentLevel < currentMin){
+      maxMin['min'] = currentLevel;
+    }
+  }
+  return maxMin;
+}
 
 export const renderMap = async ()=>{
     
@@ -27,38 +46,48 @@ export const renderMap = async ()=>{
 
 
     // Request the GeoJSON
+    const states = statesGet();
     d3.json(geoJsonUrl).then(geojson => {
 
-    
+      
     svg.selectAll("path")
         .data(geojson.features)
         .enter()
         .append("path")
         .attr("d", pathGenerator) // This is where the magic happens
+        .attr('fill', (object)=> {
+          const state = states[object.properties.NAME]
+          if (!state){
+            return 'blue'
+          }
+          const percentMax = state['2019']/maxMinData()['max'] 
+          if (percentMax > 0.3) return '#ff0000';
+          if (percentMax > 0.20) return '#ffa700';
+          if (percentMax > 0.10) return '#fff400';
+          if (percentMax > .03) return '#a3ff00';
+          return '#2cba00'
+        })
         .on('mouseover', function(event){
-        let title = d3.select('h2');
-        title.text(this.dataset.names)
+          let title = d3.select('h2');
+          title.text(this.dataset.names)
         }) 
         .on('mouseout', function(event){
             let title = d3.select('h2');
-            
             title.text('Click a State:')
-            }) 
+        }) 
         .on('click', function(event){
           let chart = d3.select('.stateChart')
           createStateLineChart(this.dataset.names);
           d3.select('.stateChart').style('opacity', 1)
             .style('pointer-events', 'auto')
             .on('click',function(){
-              d3.select('.stateChart').style('opacity', 0)
+          d3.select('.stateChart').style('opacity', 0)
               .style('pointer-events', 'none')
           })
   
         })
-        .attr("stroke", "black") // Color of the lines themselves
+        .attr("stroke", "grey") // Color of the lines themselves
         .attr('stroke-width', 2)
-        .attr('fill-opacity', .1)
-        .attr("fill", "transparent") // Color uses to fill in the lines
         .attr('data-names', (state)=>{
             return state.properties.NAME
         })//add stateNames to paths
@@ -78,68 +107,65 @@ export const stateObjects = ()=>{
     return stateObjects;
 }
 
-export const renderEmissions = async ()=>{
-    // Setting up the svg element for D3 to draw in
-      let width = 1000, height = 600
+
+// export const renderEmissions = async ()=>{
+//     // Setting up the svg element for D3 to draw in
+//       let width = 1000, height = 600
   
-      let svg = d3.select(".emissions").append("svg")
-          .attr("width", width)
-          .attr("height", height)
+//       let svg = d3.select(".emissions").append("svg")
+//           .attr("width", width)
+//           .attr("height", height)
    
-      // A projection tells D3 how to orient the GeoJSON features
-      let usaProjection = d3.geoAlbersUsa()
-          .scale(screen.width/2)
-      .translate([500, 300])
+//       // A projection tells D3 how to orient the GeoJSON features
+//       let usaProjection = d3.geoAlbersUsa()
+//           .scale(screen.width/2)
+//       .translate([500, 300])
   
   
-      // The path generator uses the projection to convert the GeoJSON
-      // geometry to a set of coordinates that D3 can understand
-      let pathGenerator = d3.geoPath().projection(usaProjection)
-      let geoJsonUrl = "https://api.v2.emissions-api.org/api/v2/carbonmonoxide/geo.json?country=USA&begin=2021-02-01&end=2021-02-11&limit=7000&offset=0"
-      // Request the GeoJSON
-       d3.json(geoJsonUrl).then(geojson => {
-          // Tell D3 to render a path for each GeoJSON feature
+//       // The path generator uses the projection to convert the GeoJSON
+//       // geometry to a set of coordinates that D3 can understand
+//       let pathGenerator = d3.geoPath().projection(usaProjection)
+//       let geoJsonUrl = "https://api.v2.emissions-api.org/api/v2/carbonmonoxide/geo.json?country=USA&begin=2021-02-01&end=2021-02-11&limit=7000&offset=0"
+//       // Request the GeoJSON
+//        d3.json(geoJsonUrl).then(geojson => {
+//           // Tell D3 to render a path for each GeoJSON feature
         
-        let max = .049;
-        let min = .0139;
-        let counter = 0
-      svg.selectAll("path")
-          .data(geojson.features)
-          .enter()
-          .append("path")
-          .attr("d", pathGenerator) // This is where the magic happens
-          .attr("fill", object=>{
-            counter +=1;
-            let value = object.properties.value;
-           //max = 0.491, min =.0139
-            let dScale = (max-min)/5;
-            if (value < (min + dScale)) {return '#2cba00'}else if(value < min + 2* dScale){return '#a3ff00'}
-            else if(value < min + 3 * dScale) {return '#fff400'} else if(value< min + 3.5 * dScale){return '#ffa700'};
-            return '#ff0000';
-          } ) 
-        }).then(data=> {
-          d3.select('.loading').style('opacity', 0);
-          d3.select('.stateShow').style('opacity', 1);
-        })
+//         let max = .049;
+//         let min = .0139;
+//         let counter = 0
+//       svg.selectAll("path")
+//           .data(geojson.features)
+//           .enter()
+//           .append("path")
+//           .attr("d", pathGenerator) // This is where the magic happens
+//           .attr("fill", object=>{
+//             counter +=1;
+//             let value = object.properties.value;
+//            //max = 0.491, min =.0139
+//             let dScale = (max-min)/5;
+//             if (value < (min + dScale)) {return '#2cba00'}else if(value < min + 2* dScale){return '#a3ff00'}
+//             else if(value < min + 3 * dScale) {return '#fff400'} else if(value< min + 3.5 * dScale){return '#ffa700'};
+//             return '#ff0000';
+//           } ) 
+//         }).then(data=> {
+//           d3.select('.loading').style('opacity', 0);
+//           d3.select('.stateShow').style('opacity', 1);
+//         })
 
-      }
+// }
 
 
-const createStateLineChart = async (state)=>{
-  let states = statesGet();
-  let stateObject;
-  let yearlies = {};
-  for (let i = 0; i < states.length; i++){
-    if (states[i]['State'] === state){
-      stateObject = states[i];
-      let delta = stateObject.Percent
+
+
+const createStateLineChart = async (stateName)=>{
+  const states = statesGet();
+  const state = states[stateName];
+  const yearlies = {};
+      // let delta = stateObject.Percent
       for (let j = 1970; j <= 2019; j++){
-        yearlies[j] = stateObject[`${j}`]
+        yearlies[j] = state[`${j}`]
       }
-      break;
-    } 
     
-  }
   let canvas = document.getElementById('chart')
 
   //If no chart exist, we need to create a new canvs
@@ -243,7 +269,7 @@ const createStateLineChart = async (state)=>{
     },
     title: {
       display: true,
-      text: `${state}'s Historical CO2 Emissions`,
+      text: `${stateName}'s Historical CO2 Emissions`,
       color: '#5B8291',
       font: titleFont
     }
