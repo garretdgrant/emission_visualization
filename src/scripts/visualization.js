@@ -25,7 +25,7 @@ const maxMinData = () =>{
 
 export const renderMap = async ()=>{
     
-    let width = 1000, height = 600
+    let width = 1000, height = 425
       
     let svg = d3.select("div.states").append("svg")
               .attr("width", width)
@@ -35,7 +35,7 @@ export const renderMap = async ()=>{
     // A projection tells D3 how to orient the GeoJSON features
     let usaProjection = d3.geoAlbersUsa()
         .scale(screen.width/2)
-        .translate([500, 300])
+        .translate([500, 225])
 
 
     // The path generator uses the projection to convert the GeoJSON

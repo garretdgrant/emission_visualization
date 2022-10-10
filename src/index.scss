@@ -1,6 +1,8 @@
 body{
     position: relative;
     background-color: #EAEBED;
+    height: 100vh;
+    overflow: hidden;
 }
 
 #instruction_modal{
@@ -13,6 +15,12 @@ body{
     z-index: 1;
     cursor: pointer;
     transition: 600ms;
+}
+
+.map-container{
+    height: calc(80vh - 3rem);
+    width: 500px;
+    height: 500px;
 }
 
 
@@ -55,6 +63,7 @@ h2{
     font-family: serif;
     font-weight: bold;
     color: #244d61;
+    position: absolute;
 
 }
 
