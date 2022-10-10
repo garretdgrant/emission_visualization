@@ -108,55 +108,6 @@ export const stateObjects = ()=>{
 }
 
 
-// export const renderEmissions = async ()=>{
-//     // Setting up the svg element for D3 to draw in
-//       let width = 1000, height = 600
-  
-//       let svg = d3.select(".emissions").append("svg")
-//           .attr("width", width)
-//           .attr("height", height)
-   
-//       // A projection tells D3 how to orient the GeoJSON features
-//       let usaProjection = d3.geoAlbersUsa()
-//           .scale(screen.width/2)
-//       .translate([500, 300])
-  
-  
-//       // The path generator uses the projection to convert the GeoJSON
-//       // geometry to a set of coordinates that D3 can understand
-//       let pathGenerator = d3.geoPath().projection(usaProjection)
-//       let geoJsonUrl = "https://api.v2.emissions-api.org/api/v2/carbonmonoxide/geo.json?country=USA&begin=2021-02-01&end=2021-02-11&limit=7000&offset=0"
-//       // Request the GeoJSON
-//        d3.json(geoJsonUrl).then(geojson => {
-//           // Tell D3 to render a path for each GeoJSON feature
-        
-//         let max = .049;
-//         let min = .0139;
-//         let counter = 0
-//       svg.selectAll("path")
-//           .data(geojson.features)
-//           .enter()
-//           .append("path")
-//           .attr("d", pathGenerator) // This is where the magic happens
-//           .attr("fill", object=>{
-//             counter +=1;
-//             let value = object.properties.value;
-//            //max = 0.491, min =.0139
-//             let dScale = (max-min)/5;
-//             if (value < (min + dScale)) {return '#2cba00'}else if(value < min + 2* dScale){return '#a3ff00'}
-//             else if(value < min + 3 * dScale) {return '#fff400'} else if(value< min + 3.5 * dScale){return '#ffa700'};
-//             return '#ff0000';
-//           } ) 
-//         }).then(data=> {
-//           d3.select('.loading').style('opacity', 0);
-//           d3.select('.stateShow').style('opacity', 1);
-//         })
-
-// }
-
-
-
-
 const createStateLineChart = async (stateName)=>{
   const states = statesGet();
   const state = states[stateName];
